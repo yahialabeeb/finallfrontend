@@ -22,7 +22,9 @@ class App extends React.Component {
             <Switch>
 
               <Route exact path="/">
-                {this.props.auth0.isAuthenticated ? <MyFavorites /> : <Login />}
+                {this.props.auth0.isAuthenticated ? <MyFavorites
+                user={this.props.auth0.user}
+                /> : <Login />}
               </Route>
 
               <Route path="/profile">
@@ -30,7 +32,9 @@ class App extends React.Component {
               </Route>
 
               <Route path="/getAPIData">
-                <AllDataAPI/>
+                <AllDataAPI
+                 user={this.props.auth0.user}
+                />
               </Route>
               
             </Switch>
